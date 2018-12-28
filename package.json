@@ -1,0 +1,21 @@
+{
+  "name": "fluffy-math",
+  "version": "1.0.0",
+  "description": "Create random arithmetic problems for primary school students.",
+  "main": "index.js",
+  "repository": "git@github.com:spencerwooo/fluffy-math.git",
+  "author": "spencerwooo",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "eslint": "^5.11.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}
