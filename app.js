@@ -1,30 +1,23 @@
 var inquirer = require('inquirer')
 var fs = require('fs')
-
-// Get random number between 0 to 100
-function getRandomNumber () {
-  return Math.floor(Math.random() * 101)
-}
-
-function getRandomOperator () {
-  let operators = [' + ', ' - ', ' × ', ' ÷ ']
-  return operators[[Math.floor(Math.random() * operators.length)]]
-}
-
-function generateArithmeticProblems (problemNum) {
-  let problemList = []
-  while (problemNum--) {
-    let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
-    problemList.push(problem)
-  }
-  return problemList
-}
+var generator = require('./tools/generator')
+// var solver = require('./tools/solver')
 
 function main () {
+  let doWhat = [{
+    type: 'list',
+    name: 'doWhat',
+    message: 'Solve my problems or generate problems?',
+    choices: [
+      'Generate!',
+      'Solve!'
+    ]
+  }]
+
   let questionCount = [{
     type: 'input',
     name: 'count',
-    message: 'How many problems do you want to solve?',
+    message: 'How many problems do you want to generate?',
     validate: function (number) {
       // Problem count must be a positive integer
       let pattern = /^[1-9]\d*$/
@@ -36,23 +29,31 @@ function main () {
     }
   }]
 
-  inquirer.prompt(questionCount).then(answers => {
-    let problemFile = 'problems.txt'
-    let problemCount = answers['count']
-    let problemSet = generateArithmeticProblems(problemCount)
+  inquirer.prompt(doWhat).then(doThis => {
+    if (doThis['doWhat'] === 'Generate!') {
+      inquirer.prompt(questionCount).then(answers => {
+        let problemFile = 'problems.txt'
+        let problemCount = answers['count']
+        let problemSet = generator(problemCount)
 
-    try {
-      let stream = fs.createWriteStream(problemFile, { flags: 'a+' })
-      problemSet.forEach((item) => {
-        console.log(item)
-        stream.write(item + '\n')
+        try {
+          let stream = fs.createWriteStream(problemFile, { flags: 'w' })
+          problemSet.forEach((item) => {
+            console.log(item)
+            stream.write(item + '\n')
+          })
+          console.log('Saved ' + problemCount + ' problems to file: ' + problemFile)
+        } catch (error) {
+          throw error
+        }
+
+        console.log('Generated ' + problemCount + ' problems.')
       })
-      console.log('Saved ' + problemCount + ' problems to file: ' + problemFile)
-    } catch (error) {
-      throw error
     }
 
-    console.log('Generated ' + problemCount + ' problems.')
+    if (doThis['doWhat'] === 'Solve!') {
+      console.log('Solve!')
+    }
   })
 }
 
