@@ -4,18 +4,20 @@ function getRandomNumber () {
 }
 
 function getRandomOperator () {
-  let operators = [' + ', ' - ', ' × ', ' ÷ ']
+  let operators = ['+', '-', '×', '÷']
   return operators[[Math.floor(Math.random() * operators.length)]]
 }
 
-function generator (problemNum) {
-  console.log('Hello generator!')
-  let problemList = []
-  while (problemNum--) {
-    let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
-    problemList.push(problem)
+function Generator () {
+  this.generate = function (problemNum) {
+    console.log('Hello generator!')
+    let problemList = []
+    while (problemNum--) {
+      let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
+      problemList.push(problem)
+    }
+    return problemList
   }
-  return problemList
 }
 
-module.exports = generator
+module.exports = Generator
