@@ -33,7 +33,7 @@ $ yarn install
 $ yarn start
 ```
 
-![](https://i.loli.net/2018/12/29/5c26f9fa47377.png)
+![](https://i.loli.net/2018/12/29/5c26fdf53a85d.png)
 
 * * *
 
