@@ -1,7 +1,7 @@
 var inquirer = require('inquirer')
 var fs = require('fs')
-var generator = require('./tools/generator')
-// var solver = require('./tools/solver')
+var Generator = require('./tools/generator')
+var Solver = require('./tools/solver')
 
 function main () {
   let doWhat = [{
@@ -34,10 +34,13 @@ function main () {
       inquirer.prompt(questionCount).then(answers => {
         let problemFile = 'problems.txt'
         let problemCount = answers['count']
-        let problemSet = generator(problemCount)
+        let generator = new Generator()
+        let problemSet = generator.generate(problemCount)
 
         try {
-          let stream = fs.createWriteStream(problemFile, { flags: 'w' })
+          let stream = fs.createWriteStream(problemFile, {
+            flags: 'w'
+          })
           problemSet.forEach((item) => {
             console.log(item)
             stream.write(item + '\n')
@@ -52,7 +55,10 @@ function main () {
     }
 
     if (doThis['doWhat'] === 'Solve!') {
-      console.log('Solve!')
+      let problem = '1*3-(12/4)+7'
+      // let problem = '5 + ((1 + 2) * 4) - 3'
+      let solver = new Solver()
+      console.log(problem + ' = ' + solver.solve(problem))
     }
   })
 }
