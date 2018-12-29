@@ -1,7 +1,8 @@
 var inquirer = require('inquirer')
+var fs = require('fs')
 
+// Get random number between 0 to 100
 function getRandomNumber () {
-  // Get random number between 0 to 100
   return Math.floor(Math.random() * 101)
 }
 
@@ -11,9 +12,12 @@ function getRandomOperator () {
 }
 
 function generateArithmeticProblems (problemNum) {
+  let problemList = []
   while (problemNum--) {
-    console.log(getRandomNumber() + getRandomOperator() + getRandomNumber())
+    let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
+    problemList.push(problem)
   }
+  return problemList
 }
 
 function main () {
@@ -33,8 +37,21 @@ function main () {
   }]
 
   inquirer.prompt(questionCount).then(answers => {
+    let problemFile = 'problems.txt'
     let problemCount = answers['count']
-    generateArithmeticProblems(problemCount)
+    let problemSet = generateArithmeticProblems(problemCount)
+
+    try {
+      let stream = fs.createWriteStream(problemFile, { flags: 'a+' })
+      problemSet.forEach((item) => {
+        console.log(item)
+        stream.write(item + '\n')
+      })
+      console.log('Saved ' + problemCount + ' problems to file: ' + problemFile)
+    } catch (error) {
+      throw error
+    }
+
     console.log('Generated ' + problemCount + ' problems.')
   })
 }
