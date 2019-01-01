@@ -10,7 +10,7 @@ function getRandomOperator () {
 
 function Generator () {
   this.generate = function (problemNum) {
-    console.log('Hello generator!')
+    // console.log('Hello generator!')
     let problemList = []
     while (problemNum--) {
       let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()

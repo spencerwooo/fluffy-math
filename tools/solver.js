@@ -74,7 +74,7 @@ function Solver () {
   this.solve = function (expression) {
     let resultStack = []
     let postFixExpression = this.reversePolishNotation(expression)
-    console.log(postFixExpression)
+    // console.log(postFixExpression)
 
     postFixExpression = postFixExpression.split(' ')
     cleanArray(postFixExpression)
