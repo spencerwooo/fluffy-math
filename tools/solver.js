@@ -1,7 +1,15 @@
+/** @function
+ * @name isNumeric
+ * @param {string} num - 检查以字符串形式存储的变量是否为数字
+ */
 function isNumeric (num) {
   return !isNaN(parseFloat(num)) && isFinite(num)
 }
 
+/** @function
+ * @name cleanArray
+ * @param {Array} arr - 删掉 List 中的空白表项
+ */
 function cleanArray (arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === '') {
@@ -11,7 +19,13 @@ function cleanArray (arr) {
   return arr
 }
 
+/** @class
+ * @name Solver: 解决四则运算问题
+ */
 function Solver () {
+  /** @function
+   * @name reversePolishNotation - 中缀表达式转后缀表达式
+   * */
   this.reversePolishNotation = function (preFixExpression) {
     let outputQueue = ''
     let operatorStack = []
@@ -71,6 +85,10 @@ function Solver () {
     return outputQueue
   }
 
+  /** @function
+   * @name solve - 中缀转后缀，然后以后缀表达式的形式求解四则运算问题
+   * @param {string} expression - 中缀表达式
+   */
   this.solve = function (expression) {
     let resultStack = []
     let postFixExpression = this.reversePolishNotation(expression)
