@@ -6,7 +6,7 @@
 
 <p><strong>BIT 软件开发团队项目</strong></p>
 
-<p>👉  🔢  😍  😩  😁  😻  😊  🙌  😭  👈</p>
+<p>👉  🔢  📝  📚  😒  😑  😩  ✔️  📓  👈</p>
 
 <!-- <h3>
 <a href="https://github.com/spencerwooo/Sudoku">项目主页</a>
