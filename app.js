@@ -55,10 +55,17 @@ function main () {
     }
 
     if (doThis['doWhat'] === 'Solve!') {
-      let problem = '1*3-(12/4)+7'
-      // let problem = '5 + ((1 + 2) * 4) - 3'
+      let solveProblemFile = 'solve_problems.txt'
       let solver = new Solver()
-      console.log(problem + ' = ' + solver.solve(problem))
+
+      fs.readFile(solveProblemFile, (err, data) => {
+        if (err) throw err
+        let problemSet = data.toString().split('\n')
+        problemSet.forEach((problem) => {
+          let answer = solver.solve(problem)
+          console.log(problem + ' = ' + answer)
+        })
+      })
     }
   })
 }
