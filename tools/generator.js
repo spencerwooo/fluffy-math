@@ -26,12 +26,41 @@ function Generator () {
   this.generate = function (problemNum) {
     // console.log('Hello generator!')
     let problemList = []
+    let bracketflag = 0
+    let numflag = 0
+    let block = 0
     while (problemNum--) {
-      var Plen = Math.floor(Math.random() * 10) + 1
+      bracketflag = 0
+      numflag = 0
+      block = 0
+      let Plen = Math.floor(Math.random() * 10) + 1
       // console.log(Plen)
       let problem = getRandomNumber()
       while (Plen--) {
-        problem = problem + getRandomOperator() + getRandomNumber()
+        block = 0
+        problem = problem + getRandomOperator()
+        if (Plen > 1) {
+          if (Math.random() > 0.7) {
+            problem += '( '
+            bracketflag = 1
+            numflag++
+            block = 1
+          }
+        }
+        problem += getRandomNumber()
+        if (bracketflag) {
+          if (Math.random() > 0.7) {
+            if (!block) {
+              problem += ')'
+              bracketflag = 0
+              numflag -= 1
+            }
+          }
+        }
+      }
+      while (numflag > 0) {
+        problem += ')'
+        numflag--
       }
       // let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
       problemList.push(problem)
