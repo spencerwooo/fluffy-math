@@ -2,6 +2,8 @@
  * @name getRandomNumber - 生成 0 到 100 的随机数
  */
 function getRandomNumber () {
+  // var numerator = Math.floor(Math.random() * 101)
+  // var denominator = Math.floor(Math.random() * 101)
   return Math.floor(Math.random() * 101)
 }
 
@@ -25,7 +27,13 @@ function Generator () {
     // console.log('Hello generator!')
     let problemList = []
     while (problemNum--) {
-      let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
+      var Plen = Math.floor(Math.random() * 10) + 1
+      // console.log(Plen)
+      let problem = getRandomNumber()
+      while (Plen--) {
+        problem = problem + getRandomOperator() + getRandomNumber()
+      }
+      // let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
       problemList.push(problem)
     }
     return problemList
