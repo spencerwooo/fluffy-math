@@ -63,7 +63,11 @@ function main () {
         let problemSet = data.toString().split('\n')
         problemSet.forEach((problem) => {
           let answer = solver.solve(problem)
-          console.log(problem + ' = ' + answer)
+          if (answer[0] === 'E') {
+            console.log('[ERR!] ' + problem + ' False expression')
+          } else {
+            console.log(problem + ' = ' + answer.toFraction())
+          }
         })
       })
     }
