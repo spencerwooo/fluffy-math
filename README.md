@@ -1,7 +1,7 @@
 <!-- ![](https://raw.githubusercontent.com/spencerwooo/fluffy-math/master/artwork/fluffy-math.png) -->
 <div align="center">
 
-<img src="artwork/fluffy-math.png" width="25%"/>
+<img src="artwork/fluffy-math.png" width="20%"/>
 
 <h1>Fluffy Math</h1>
 
