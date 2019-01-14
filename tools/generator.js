@@ -8,11 +8,32 @@ function getRandomNumber () {
 }
 
 /** @function
+ * @name getRandomNumber - 生成 0 到 100 的随机数
+ */
+function getSmallRandomNumber () {
+  // var numerator = Math.floor(Math.random() * 101)
+  // var denominator = Math.floor(Math.random() * 101)
+  return Math.floor(Math.random() * 10)
+}
+
+/** @function
  * @name getRandomOperator - 生成随机的运算符号
  */
 function getRandomOperator () {
-  let operators = ['+', '-', '×', '÷']
-  return operators[[Math.floor(Math.random() * operators.length)]]
+  let operators = ['+', '-', '×', '÷', '^']
+  let randomoperator = Math.random()
+  if (randomoperator > 0.7) {
+    return operators[0]
+  } else if (randomoperator > 0.4) {
+    return operators[1]
+  } else if (randomoperator > 0.15) {
+    return operators[2]
+  } else if (randomoperator > 0.05) {
+    return operators[3]
+  } else {
+    return operators[4]
+  }
+  // return operators[[Math.floor(Math.random() * operators.length)]]
 }
 
 /** @class
@@ -29,6 +50,7 @@ function Generator () {
     let bracketflag = 0
     let numflag = 0
     let block = 0
+    let tmp = ''
     while (problemNum--) {
       bracketflag = 0
       numflag = 0
@@ -38,7 +60,8 @@ function Generator () {
       let problem = getRandomNumber()
       while (Plen--) {
         block = 0
-        problem = problem + getRandomOperator()
+        tmp = getRandomOperator()
+        problem = problem + tmp
         if (Plen > 1) {
           if (Math.random() > 0.7) {
             problem += '( '
@@ -47,7 +70,11 @@ function Generator () {
             block = 1
           }
         }
-        problem += getRandomNumber()
+        if (tmp === '**' || tmp === '^') {
+          problem += getSmallRandomNumber()
+        } else {
+          problem += getRandomNumber()
+        }
         if (bracketflag) {
           if (Math.random() > 0.7) {
             if (!block) {
