@@ -1,6 +1,7 @@
-![](https://i.loli.net/2018/12/30/5c28e1c49ea2a.png)
-
+<!-- ![](https://raw.githubusercontent.com/spencerwooo/fluffy-math/master/artwork/fluffy-math.png) -->
 <div align="center">
+
+<img src="artwork/fluffy-math.png" width="25%"/>
 
 <h1>Fluffy Math</h1>
 
