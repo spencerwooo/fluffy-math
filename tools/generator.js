@@ -20,7 +20,7 @@ function getSmallRandomNumber () {
  * @name getRandomOperator - 生成随机的运算符号
  */
 function getRandomOperator () {
-  let operators = ['+', '-', '×', '÷', '^']
+  let operators = ['+', '-', '*', '÷', '^']
   let randomoperator = Math.random()
   if (randomoperator > 0.7) {
     return operators[0]
@@ -33,7 +33,6 @@ function getRandomOperator () {
   } else {
     return operators[4]
   }
-  // return operators[[Math.floor(Math.random() * operators.length)]]
 }
 
 /** @class
@@ -47,32 +46,33 @@ function Generator () {
   this.generate = function (problemNum) {
     // console.log('Hello generator!')
     let problemList = []
-    let bracketflag = 0
-    let numflag = 0
-    let block = 0
-    let tmp = ''
+    let bracketflag = 0 // 能不能加右括号
+    let numflag = 0 // 缺少的右括号个数
+    let block = 0 // 避免（3）这种情况
+    let tmp = '' // 存储运算符，进行运算类型判断，以约束运算数
     while (problemNum--) {
       bracketflag = 0
       numflag = 0
       block = 0
+      // let i = 0
       let Plen = Math.floor(Math.random() * 10) + 1
-      // console.log(Plen)
       let problem = getRandomNumber()
       while (Plen--) {
         block = 0
         tmp = getRandomOperator()
         problem = problem + tmp
-        if (Plen > 1) {
-          if (Math.random() > 0.7) {
-            problem += '( '
-            bracketflag = 1
-            numflag++
-            block = 1
-          }
-        }
         if (tmp === '**' || tmp === '^') {
+          // console.log('hhh ', problem[i], i)
           problem += getSmallRandomNumber()
         } else {
+          if (Plen > 1) {
+            if (Math.random() > 0.8) {
+              problem += '('
+              bracketflag = 1
+              numflag++
+              block = 1
+            }
+          }
           problem += getRandomNumber()
         }
         if (bracketflag) {
