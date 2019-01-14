@@ -56,7 +56,7 @@ function Fractional () {
         problem = problem + getRandomOperator()
         if (Plen > 1) {
           if (Math.random() > 0.7) {
-            problem += '( '
+            problem += '('
             bracketflag = 1
             numflag++
             block = 1

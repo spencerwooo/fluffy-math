@@ -2,8 +2,6 @@
  * @name getRandomNumber - 生成 0 到 100 的随机数
  */
 function getRandomNumber () {
-  // var numerator = Math.floor(Math.random() * 101)
-  // var denominator = Math.floor(Math.random() * 101)
   return Math.floor(Math.random() * 101)
 }
 
@@ -11,8 +9,6 @@ function getRandomNumber () {
  * @name getRandomNumber - 生成 0 到 100 的随机数
  */
 function getSmallRandomNumber () {
-  // var numerator = Math.floor(Math.random() * 101)
-  // var denominator = Math.floor(Math.random() * 101)
   return Math.floor(Math.random() * 10)
 }
 
@@ -54,7 +50,8 @@ function Generator () {
       bracketflag = 0
       numflag = 0
       block = 0
-      // let i = 0
+      let end = 0
+      let start = 0
       let Plen = Math.floor(Math.random() * 10) + 1
       let problem = getRandomNumber()
       while (Plen--) {
@@ -62,7 +59,14 @@ function Generator () {
         tmp = getRandomOperator()
         problem = problem + tmp
         if (tmp === '**' || tmp === '^') {
-          // console.log('hhh ', problem[i], i)
+          end = problem.length
+          start = end - 2
+          while (start) {
+            if ((problem[start] >= '0' && problem[start] <= '9') || problem[start] === ')') {
+              problem = problem.substring(0, start + 1) + problem[end - 1]
+              start--
+            } else break
+          }
           problem += getSmallRandomNumber()
         } else {
           if (Plen > 1) {
@@ -89,7 +93,6 @@ function Generator () {
         problem += ')'
         numflag--
       }
-      // let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
       problemList.push(problem)
     }
     return problemList
