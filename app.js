@@ -101,7 +101,7 @@ function main () {
         let problemSet = data.toString().split('\n')
         problemSet.forEach((problem) => {
           let answer = solver.solve(problem)
-          if (isNaN(answer[0])) {
+          if (answer === 'DivisionByZero') {
             console.log('[ERR!] ' + problem + ' False expression: ' + answer)
           } else {
             console.log(problem + ' = ' + answer.toFraction())

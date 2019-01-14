@@ -27,7 +27,6 @@ function cleanArray (arr) {
 function Solver () {
   this.solve = function (expression) {
     expression = expression.replace(/÷/g, '/')
-    expression = expression.replace(/×/g, '*')
     return this.solveIntegerExpression(expression)
   }
 
@@ -119,7 +118,7 @@ function Solver () {
           try {
             resultStack.push(Fraction(val2).div(val1))
           } catch (error) {
-            return error
+            return error.name
           }
         } else if (postFixExpression[i] === '^') {
           resultStack.push(Fraction(val2).pow(val1))
