@@ -1,3 +1,5 @@
+var Fraction = require('fraction.js')
+
 /** @function
  * @name isNumeric
  * @param {string} num - 检查以字符串形式存储的变量是否为数字
@@ -23,6 +25,12 @@ function cleanArray (arr) {
  * @name Solver: 解决四则运算问题
  */
 function Solver () {
+  this.solve = function (expression) {
+    expression = expression.replace(/÷/g, '/')
+    expression = expression.replace(/×/g, '*')
+    return this.solveIntegerExpression(expression)
+  }
+
   /** @function
    * @name reversePolishNotation - 中缀表达式转后缀表达式
    * */
@@ -86,32 +94,35 @@ function Solver () {
   }
 
   /** @function
-   * @name solve - 中缀转后缀，然后以后缀表达式的形式求解四则运算问题
+   * @name solveIntegerExpression - 中缀转后缀，然后以后缀表达式的形式求解四则运算问题
    * @param {string} expression - 中缀表达式
    */
-  this.solve = function (expression) {
+  this.solveIntegerExpression = function (expression) {
     let resultStack = []
     let postFixExpression = this.reversePolishNotation(expression)
-    // console.log(postFixExpression)
 
     postFixExpression = postFixExpression.split(' ')
     cleanArray(postFixExpression)
     for (let i = 0; i < postFixExpression.length; i++) {
       if (isNumeric(postFixExpression[i])) {
-        resultStack.push(postFixExpression[i])
+        resultStack.push(Fraction(postFixExpression[i]))
       } else {
         let val1 = resultStack.pop()
         let val2 = resultStack.pop()
         if (postFixExpression[i] === '+') {
-          resultStack.push(parseInt(val2) + parseInt(val1))
+          resultStack.push(Fraction(val1).add(val2))
         } else if (postFixExpression[i] === '-') {
-          resultStack.push(parseInt(val2) - parseInt(val1))
+          resultStack.push(Fraction(val2).sub(val1))
         } else if (postFixExpression[i] === '*') {
-          resultStack.push(parseInt(val2) * parseInt(val1))
+          resultStack.push(Fraction(val1).mul(val2))
         } else if (postFixExpression[i] === '/') {
-          resultStack.push(parseInt(val2) / parseInt(val1))
+          try {
+            resultStack.push(Fraction(val2).div(val1))
+          } catch (error) {
+            return error
+          }
         } else if (postFixExpression[i] === '^') {
-          resultStack.push(Math.pow(parseInt(val2), parseInt(val1)))
+          resultStack.push(Fraction(val2).pow(val1))
         }
       }
     }
