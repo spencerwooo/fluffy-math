@@ -1,4 +1,3 @@
-<!-- ![](https://raw.githubusercontent.com/spencerwooo/fluffy-math/master/artwork/fluffy-math.png) -->
 <div align="center">
 
 <img src="artwork/fluffy-math.png" width="20%"/>
