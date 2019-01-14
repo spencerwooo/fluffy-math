@@ -27,7 +27,7 @@ function getRandomFraction () {
  * @name getRandomOperator - 生成随机的运算符号
  */
 function getRandomOperator () {
-  let operators = ['+', '-', '×', '÷']
+  let operators = ['+', '-', '*', '÷']
   return operators[[Math.floor(Math.random() * operators.length)]]
 }
 
