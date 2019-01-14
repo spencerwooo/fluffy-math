@@ -119,7 +119,7 @@ function Solver () {
           try {
             resultStack.push(Fraction(val2).div(val1))
           } catch (error) {
-            return 'ERR' + error
+            return error
           }
         } else if (postFixExpression[i] === '^') {
           resultStack.push(Fraction(val2).pow(val1))
