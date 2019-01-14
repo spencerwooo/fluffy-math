@@ -1,6 +1,7 @@
 var inquirer = require('inquirer')
 var fs = require('fs')
 var Generator = require('./tools/generator')
+var Fractional = require('./tools/fractional')
 var Solver = require('./tools/solver')
 
 function main () {
@@ -11,6 +12,16 @@ function main () {
     choices: [
       'Generate!',
       'Solve!'
+    ]
+  }]
+
+  let questionType = [{
+    type: 'list',
+    name: 'type',
+    message: 'Integer arithmetic or fractional arithmetic',
+    choices: [
+      'Integer!',
+      'Fractional!'
     ]
   }]
 
@@ -31,26 +42,53 @@ function main () {
 
   inquirer.prompt(doWhat).then(doThis => {
     if (doThis['doWhat'] === 'Generate!') {
-      inquirer.prompt(questionCount).then(answers => {
-        let problemFile = 'problems.txt'
-        let problemCount = answers['count']
-        let generator = new Generator()
-        let problemSet = generator.generate(problemCount)
+      inquirer.prompt(questionType).then(doThis => {
+        if (doThis['type'] === 'Integer!') {
+          inquirer.prompt(questionCount).then(answers => {
+            let problemFile = 'problems.txt'
+            let problemCount = answers['count']
+            let generator = new Generator()
+            let problemSet = generator.generate(problemCount)
 
-        try {
-          let stream = fs.createWriteStream(problemFile, {
-            flags: 'w'
+            try {
+              let stream = fs.createWriteStream(problemFile, {
+                flags: 'w'
+              })
+              problemSet.forEach((item) => {
+                console.log(item)
+                stream.write(item + '\n')
+              })
+              console.log('Saved ' + problemCount + ' problems to file: ' + problemFile)
+            } catch (error) {
+              throw error
+            }
+
+            console.log('Generated ' + problemCount + ' problems.')
           })
-          problemSet.forEach((item) => {
-            console.log(item)
-            stream.write(item + '\n')
-          })
-          console.log('Saved ' + problemCount + ' problems to file: ' + problemFile)
-        } catch (error) {
-          throw error
         }
+        if (doThis['type'] === 'Fractional!') {
+          inquirer.prompt(questionCount).then(answers => {
+            let problemFile = 'problems.txt'
+            let problemCount = answers['count']
+            let fractional = new Fractional()
+            let problemSet = fractional.fractional(problemCount)
 
-        console.log('Generated ' + problemCount + ' problems.')
+            try {
+              let stream = fs.createWriteStream(problemFile, {
+                flags: 'w'
+              })
+              problemSet.forEach((item) => {
+                console.log(item)
+                stream.write(item + '\n')
+              })
+              console.log('Saved ' + problemCount + ' problems to file: ' + problemFile)
+            } catch (error) {
+              throw error
+            }
+
+            console.log('Generated Fractional ' + problemCount + ' problems.')
+          })
+        }
       })
     }
 

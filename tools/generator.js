@@ -2,15 +2,37 @@
  * @name getRandomNumber - 生成 0 到 100 的随机数
  */
 function getRandomNumber () {
+  // var numerator = Math.floor(Math.random() * 101)
+  // var denominator = Math.floor(Math.random() * 101)
   return Math.floor(Math.random() * 101)
+}
+
+/** @function
+ * @name getRandomNumber - 生成 0 到 100 的随机数
+ */
+function getSmallRandomNumber () {
+  // var numerator = Math.floor(Math.random() * 101)
+  // var denominator = Math.floor(Math.random() * 101)
+  return Math.floor(Math.random() * 10)
 }
 
 /** @function
  * @name getRandomOperator - 生成随机的运算符号
  */
 function getRandomOperator () {
-  let operators = ['+', '-', '×', '÷']
-  return operators[[Math.floor(Math.random() * operators.length)]]
+  let operators = ['+', '-', '*', '÷', '^']
+  let randomoperator = Math.random()
+  if (randomoperator > 0.7) {
+    return operators[0]
+  } else if (randomoperator > 0.4) {
+    return operators[1]
+  } else if (randomoperator > 0.15) {
+    return operators[2]
+  } else if (randomoperator > 0.05) {
+    return operators[3]
+  } else {
+    return operators[4]
+  }
 }
 
 /** @class
@@ -24,8 +46,50 @@ function Generator () {
   this.generate = function (problemNum) {
     // console.log('Hello generator!')
     let problemList = []
+    let bracketflag = 0 // 能不能加右括号
+    let numflag = 0 // 缺少的右括号个数
+    let block = 0 // 避免（3）这种情况
+    let tmp = '' // 存储运算符，进行运算类型判断，以约束运算数
     while (problemNum--) {
-      let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
+      bracketflag = 0
+      numflag = 0
+      block = 0
+      // let i = 0
+      let Plen = Math.floor(Math.random() * 10) + 1
+      let problem = getRandomNumber()
+      while (Plen--) {
+        block = 0
+        tmp = getRandomOperator()
+        problem = problem + tmp
+        if (tmp === '**' || tmp === '^') {
+          // console.log('hhh ', problem[i], i)
+          problem += getSmallRandomNumber()
+        } else {
+          if (Plen > 1) {
+            if (Math.random() > 0.8) {
+              problem += '('
+              bracketflag = 1
+              numflag++
+              block = 1
+            }
+          }
+          problem += getRandomNumber()
+        }
+        if (bracketflag) {
+          if (Math.random() > 0.7) {
+            if (!block) {
+              problem += ')'
+              bracketflag = 0
+              numflag -= 1
+            }
+          }
+        }
+      }
+      while (numflag > 0) {
+        problem += ')'
+        numflag--
+      }
+      // let problem = getRandomNumber() + getRandomOperator() + getRandomNumber()
       problemList.push(problem)
     }
     return problemList
