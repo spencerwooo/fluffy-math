@@ -45,7 +45,7 @@ function main () {
   inquirer.prompt(doWhat).then(doThis => {
     if (doThis['doWhat'] === 'Generate') {
       inquirer.prompt(questionType).then(doThis => {
-        if (doThis['type'] === 'Integer!') {
+        if (doThis['type'] === 'Integer') {
           inquirer.prompt(questionCount).then(answers => {
             let problemFile = 'problems.txt'
             let problemCount = answers['count']
@@ -68,7 +68,7 @@ function main () {
             console.log('Generated ' + problemCount + ' problems.')
           })
         }
-        if (doThis['type'] === 'Fractional!') {
+        if (doThis['type'] === 'Fractional') {
           inquirer.prompt(questionCount).then(answers => {
             let problemFile = 'problems.txt'
             let problemCount = answers['count']
