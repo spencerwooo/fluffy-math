@@ -3,25 +3,27 @@ var fs = require('fs')
 var Generator = require('./tools/generator')
 var Fractional = require('./tools/fractional')
 var Solver = require('./tools/solver')
+var QuestionBot = require('./tools/questionbot')
 
 function main () {
   let doWhat = [{
     type: 'list',
     name: 'doWhat',
-    message: 'Solve my problems or generate problems?',
+    message: 'Solve problems or generate problems?',
     choices: [
-      'Generate!',
-      'Solve!'
+      'Generate',
+      'Solve',
+      'Quiz mode!!!'
     ]
   }]
 
   let questionType = [{
     type: 'list',
     name: 'type',
-    message: 'Integer arithmetic or fractional arithmetic',
+    message: 'Integer arithmetic or fractional arithmetic?',
     choices: [
-      'Integer!',
-      'Fractional!'
+      'Integer',
+      'Fractional'
     ]
   }]
 
@@ -41,7 +43,7 @@ function main () {
   }]
 
   inquirer.prompt(doWhat).then(doThis => {
-    if (doThis['doWhat'] === 'Generate!') {
+    if (doThis['doWhat'] === 'Generate') {
       inquirer.prompt(questionType).then(doThis => {
         if (doThis['type'] === 'Integer!') {
           inquirer.prompt(questionCount).then(answers => {
@@ -92,9 +94,12 @@ function main () {
       })
     }
 
-    if (doThis['doWhat'] === 'Solve!') {
+    if (doThis['doWhat'] === 'Solve') {
       let solveProblemFile = 'solve_problems.txt'
       let solver = new Solver()
+      console.log('----------------------------------------')
+      console.log('Solving problems from', solveProblemFile)
+      console.log('----------------------------------------')
 
       fs.readFile(solveProblemFile, (err, data) => {
         if (err) throw err
@@ -107,6 +112,19 @@ function main () {
             console.log(problem + ' = ' + answer.toFraction())
           }
         })
+        console.log('----------------------------------------')
+        console.log('Done!')
+        console.log('----------------------------------------')
+      })
+    }
+
+    if (doThis['doWhat'] === 'Quiz mode!!!') {
+      let solveProblemFile = 'solve_problems.txt'
+      let questionBot = new QuestionBot()
+      fs.readFile(solveProblemFile, (err, data) => {
+        if (err) throw err
+        let problemSet = data.toString().split('\n')
+        questionBot.startQuestioning(problemSet)
       })
     }
   })
