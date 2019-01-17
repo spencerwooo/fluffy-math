@@ -16,7 +16,7 @@ function getSmallRandomNumber () {
  * @name getRandomOperator - 生成随机的运算符号
  */
 function getRandomOperator () {
-  let operators = ['+', '-', '*', '÷', '^']
+  let operators = ['+', '-', '*', '÷', '^', '**']
   let randomoperator = Math.random()
   if (randomoperator > 0.7) {
     return operators[0]
@@ -26,8 +26,10 @@ function getRandomOperator () {
     return operators[2]
   } else if (randomoperator > 0.05) {
     return operators[3]
-  } else {
+  } else if (randomoperator > 0.025) {
     return operators[4]
+  } else {
+    return operators[5]
   }
 }
 
@@ -56,32 +58,46 @@ function Generator () {
       let problem = getRandomNumber()
       while (Plen--) {
         block = 0
+        problem = problem + ' '
         tmp = getRandomOperator()
         problem = problem + tmp
         if (tmp === '**' || tmp === '^') {
           end = problem.length
-          start = end - 2
+          start = end - 3
           while (start) {
-            if ((problem[start] >= '0' && problem[start] <= '9') || problem[start] === ')') {
-              problem = problem.substring(0, start + 1) + problem[end - 1]
+            if (start === 1) {
+              problem = problem.substring(0, start) + ' '
+              problem = problem + tmp
+              break
+            }
+            if ((problem[start] >= '0' && problem[start] <= '9') || problem[start] === ')' || problem[start] === ' ') {
+              if (problem[start] === ')') {
+                numflag++
+              }
+              problem = problem.substring(0, start + 2) + ' '
+              problem = problem + tmp
               start--
             } else break
           }
+          problem = problem + ' '
           problem += getSmallRandomNumber()
         } else {
           if (Plen > 1) {
             if (Math.random() > 0.8) {
+              problem = problem + ' '
               problem += '('
               bracketflag = 1
               numflag++
               block = 1
             }
           }
+          problem = problem + ' '
           problem += getRandomNumber()
         }
         if (bracketflag) {
           if (Math.random() > 0.7) {
             if (!block) {
+              problem = problem + ' '
               problem += ')'
               bracketflag = 0
               numflag -= 1
@@ -90,6 +106,7 @@ function Generator () {
         }
       }
       while (numflag > 0) {
+        problem = problem + ' '
         problem += ')'
         numflag--
       }
