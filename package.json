@@ -19,6 +19,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "fraction.js": "^4.0.12",
-    "inquirer": "^6.2.1"
+    "inquirer": "^6.2.1",
+    "rxjs": "^6.3.3"
   }
 }
