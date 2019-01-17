@@ -83,7 +83,7 @@ $ yarn install
 $ yarn start
 ```
 
-![](https://i.loli.net/2019/01/01/5c2b605aed55a.png)
+![](https://i.loli.net/2019/01/17/5c40356ef38c5.png)
 
 ## 任务与进展
 
