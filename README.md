@@ -9,7 +9,7 @@
 <h3>
 <a href="https://github.com/spencerwooo/fluffy-math">Core and CLI</a>
 <span> · </span>
-<a href="https://github.com/spencerwooo/fluffy-math-spa">Frontend Generator</a>
+<a href="https://github.com/spencerwooo/fluffy-math-spa">Frontend</a>
 <span> · </span>
 <a href="https://spencerwoo.com/fluffy-math-docs/">Documentation</a>
 </h3>
