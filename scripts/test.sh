@@ -4,14 +4,14 @@ echo "Begin unit tests."
 
 echo "Test integer generator module:"
 echo "Generate 100 problems"
-yarn start
+node app.js
 
 echo "Test fractional generator module:"
 echo "Generate 100 problems"
-yarn start
+node app.js
 
 echo "Test solver module:"
-yarn start
+node app.js
 
 echo "Test quiz mode:"
-yarn start
+node app.js

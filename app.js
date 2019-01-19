@@ -95,7 +95,8 @@ function main () {
     }
 
     if (doThis['doWhat'] === 'Solve') {
-      let solveProblemFile = 'solve_problems.txt'
+      // let solveProblemFile = 'solve_problems.txt'
+      let solveProblemFile = 'problems.txt'
       let solver = new Solver()
       console.log('----------------------------------------')
       console.log('Solving problems from', solveProblemFile)
@@ -105,11 +106,17 @@ function main () {
         if (err) throw err
         let problemSet = data.toString().split('\n')
         problemSet.forEach((problem) => {
-          let answer = solver.solve(problem)
-          if (answer === 'DivisionByZero') {
-            console.log('[ERR!] ' + problem + ' False expression: ' + answer)
-          } else {
-            console.log(problem + ' = ' + answer.toFraction())
+          try {
+            if (problem !== '') {
+              let answer = solver.solve(problem)
+              if (answer === 'DivisionByZero') {
+                console.log('[ERR!] ' + problem + ' False expression: ' + answer)
+              } else {
+                console.log(problem + ' = ' + answer.toFraction())
+              }
+            }
+          } catch (error) {
+            throw error
           }
         })
         console.log('----------------------------------------')

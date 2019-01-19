@@ -13,6 +13,7 @@
     "test": "scripts/test.sh"
   },
   "dependencies": {
+    "codacy-coverage": "^3.4.0",
     "eslint": "^5.11.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
