@@ -20,6 +20,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "fraction.js": "^4.0.12",
     "inquirer": "^6.2.1",
+    "nyc": "^13.1.0",
     "rxjs": "^6.3.3"
   }
 }
