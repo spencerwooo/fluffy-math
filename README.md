@@ -15,6 +15,7 @@
 </h3>
 
 [![Codacy Badge](https://img.shields.io/codacy/grade/ebf8f648a65a4e3a86f93b50d7fd6dce.svg?logo=codacy&logoColor=%23fff&style=for-the-badge)](https://www.codacy.com/app/spencerwooo/fluffy-math?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=spencerwooo/fluffy-math&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://img.shields.io/codacy/coverage/ebf8f648a65a4e3a86f93b50d7fd6dce.svg?style=for-the-badge)](https://www.codacy.com/app/spencerwooo/fluffy-math?utm_source=github.com&utm_medium=referral&utm_content=spencerwooo/fluffy-math&utm_campaign=Badge_Coverage)
 [![](https://img.shields.io/badge/codestyle-standard-2176ff.svg?style=for-the-badge&logo=eslint&logoColor=fff)](https://standardjs.com/)
 [![](https://img.shields.io/github/license/spencerwooo/fluffy-math.svg?style=for-the-badge)](https://github.com/spencerwooo/fluffy-math/blob/master/LICENSE)
 

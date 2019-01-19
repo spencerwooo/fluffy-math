@@ -1,5 +1,7 @@
 # 测试
 
+[![Codacy Badge](https://img.shields.io/codacy/coverage/ebf8f648a65a4e3a86f93b50d7fd6dce.svg?style=for-the-badge)](https://www.codacy.com/app/spencerwooo/fluffy-math?utm_source=github.com&utm_medium=referral&utm_content=spencerwooo/fluffy-math&utm_campaign=Badge_Coverage)
+
 ## 内容
 
 `/test` 目录下存放测试用例、测试方法和测试结果。测试结果和覆盖率等内容同步至 Codacy 平台。
