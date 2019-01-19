@@ -10,7 +10,8 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node --inspect-brk app.js",
-    "test": "scripts/test.sh"
+    "test": "test/test.sh",
+    "send-coverage": "cat ./coverage/lcov.info | npx codacy-coverage"
   },
   "dependencies": {
     "codacy-coverage": "^3.4.0",
