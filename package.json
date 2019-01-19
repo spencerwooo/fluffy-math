@@ -9,7 +9,8 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "debug": "node --inspect-brk app.js"
+    "debug": "node --inspect-brk app.js",
+    "test": "scripts/test.sh"
   },
   "dependencies": {
     "eslint": "^5.11.1",
