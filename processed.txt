@@ -1,0 +1,580 @@
+Statistical profiling result from isolate-0x42f7a50-v8.log, (478 ticks, 2 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+      1    0.2%          [vdso]
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+      9    1.9%    1.9%  Builtin: InterpreterEntryTrampoline
+      8    1.7%    1.7%  Builtin: CallFunction_ReceiverIsAny
+      4    0.8%    0.8%  LazyCompile: ~removeListener events.js:306:28
+      4    0.8%    0.8%  Builtin: Call_ReceiverIsAny
+      3    0.6%    0.6%  LazyCompile: ~realpathSync fs.js:1376:22
+      3    0.6%    0.6%  LazyCompile: ~basename path.js:1291:30
+      3    0.6%    0.6%  Builtin: StringAdd_CheckNone_NotTenured
+      2    0.4%    0.4%  LazyCompile: ~normalizeString path.js:57:25
+      2    0.4%    0.4%  LazyCompile: ~handleWriteReq internal/stream_base_commons.js:12:24
+      2    0.4%    0.4%  LazyCompile: ~getOptions internal/fs/utils.js:167:20
+      2    0.4%    0.4%  LazyCompile: ~dirname path.js:1264:28
+      2    0.4%    0.4%  LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      2    0.4%    0.4%  LazyCompile: *normalizeString path.js:57:25
+      2    0.4%    0.4%  Builtin: StoreIC
+      2    0.4%    0.4%  Builtin: LoadIC_Noninlined
+      2    0.4%    0.4%  Builtin: FindOrderedHashMapEntry
+      2    0.4%    0.4%  Builtin: CompileLazy
+      1    0.2%    0.2%  LazyCompile: ~write console.js:143:15
+      1    0.2%    0.2%  LazyCompile: ~tryExtensions internal/modules/cjs/loader.js:208:23
+      1    0.2%    0.2%  LazyCompile: ~resume_ _stream_readable.js:896:17
+      1    0.2%    0.2%  LazyCompile: ~push internal/fixed_queue.js:71:7
+      1    0.2%    0.2%  LazyCompile: ~nextPart fs.js:1372:31
+      1    0.2%    0.2%  LazyCompile: ~getStringWidth internal/readline.js:35:43
+      1    0.2%    0.2%  LazyCompile: ~getRunInContextArgs vm.js:151:29
+      1    0.2%    0.2%  LazyCompile: ~gcd /home/spencer/Documents/github.com/fluffy-math/tools/fractional.js:4:14
+      1    0.2%    0.2%  LazyCompile: ~from /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/from.js:13:14
+      1    0.2%    0.2%  LazyCompile: ~extname path.js:1369:28
+      1    0.2%    0.2%  LazyCompile: ~baseSetToString /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:4022:64
+      1    0.2%    0.2%  LazyCompile: ~assembleStyles /home/spencer/Documents/github.com/fluffy-math/node_modules/ansi-styles/index.js:19:24
+      1    0.2%    0.2%  LazyCompile: ~args internal/util/types.js:11:10
+      1    0.2%    0.2%  LazyCompile: ~addListener events.js:258:58
+      1    0.2%    0.2%  LazyCompile: ~_extend util.js:290:17
+      1    0.2%    0.2%  LazyCompile: ~Script vm.js:43:14
+      1    0.2%    0.2%  LazyCompile: ~Readable.on _stream_readable.js:798:33
+      1    0.2%    0.2%  LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      1    0.2%    0.2%  LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:220:28
+      1    0.2%    0.2%  LazyCompile: ~MergeMapSubscriber.notifyComplete /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/mergeMap.js:94:60
+      1    0.2%    0.2%  LazyCompile: ~MergeMapSubscriber._tryNext /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/mergeMap.js:65:54
+      1    0.2%    0.2%  LazyCompile: ~Interface._getDisplayPos readline.js:670:46
+      1    0.2%    0.2%  LazyCompile: ~Interface._getCursorPos readline.js:703:45
+      1    0.2%    0.2%  LazyCompile: ~DoJoin native array.js:87:16
+      1    0.2%    0.2%  LazyCompile: ~ConvertToString native array.js:125:25
+      1    0.2%    0.2%  Builtin: ToString
+      1    0.2%    0.2%  Builtin: StringSubstring
+      1    0.2%    0.2%  Builtin: StringPrototypeSlice
+      1    0.2%    0.2%  Builtin: StringPrototypeCharCodeAt
+      1    0.2%    0.2%  Builtin: RecordWrite
+      1    0.2%    0.2%  Builtin: LoadIC_Uninitialized
+      1    0.2%    0.2%  Builtin: KeyedStoreIC_Megamorphic
+      1    0.2%    0.2%  Builtin: JSConstructStubGeneric
+      1    0.2%    0.2%  Builtin: Construct {1}
+      1    0.2%    0.2%  Builtin: CallWithArrayLike
+      1    0.2%    0.2%  Builtin: CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit
+
+ [C++]:
+   ticks  total  nonlib   name
+    118   24.7%   24.7%  node::contextify::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+     25    5.2%    5.2%  __GI___libc_write
+     16    3.3%    3.4%  __GI___mprotect
+     10    2.1%    2.1%  fwrite
+     10    2.1%    2.1%  epoll_pwait
+      7    1.5%    1.5%  node::GetBinding(v8::FunctionCallbackInfo<v8::Value> const&)
+      5    1.0%    1.0%  void node::StreamBase::JSMethod<node::LibuvStreamWrap, &(int node::StreamBase::WriteString<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&))>(v8::FunctionCallbackInfo<v8::Value> const&)
+      5    1.0%    1.0%  node::fs::InternalModuleStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.8%    0.8%  v8::internal::Scanner::Scan()
+      3    0.6%    0.6%  void node::Buffer::(anonymous namespace)::StringSlice<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.6%    0.6%  v8::internal::Map::GetConstructor() const
+      3    0.6%    0.6%  v8::internal::Deserializer<v8::internal::DefaultDeserializerAllocator>::ReadData(v8::internal::MaybeObject**, v8::internal::MaybeObject**, int, unsigned long)
+      3    0.6%    0.6%  node::i18n::GetStringWidth(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.6%    0.6%  node::fs::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.6%    0.6%  do_futex_wait.constprop.1
+      3    0.6%    0.6%  _dl_addr
+      3    0.6%    0.6%  __pthread_cond_signal
+      3    0.6%    0.6%  __memcpy_sse2_unaligned_erms
+      3    0.6%    0.6%  __GI___libc_malloc
+      2    0.4%    0.4%  void v8::internal::BodyDescriptorBase::IteratePointers<v8::internal::IterateAndScavengePromotedObjectsVisitor>(v8::internal::HeapObject*, int, int, v8::internal::IterateAndScavengePromotedObjectsVisitor*)
+      2    0.4%    0.4%  v8::internal::interpreter::BytecodeArrayWriter::MaybeElideLastBytecode(v8::internal::interpreter::Bytecode, bool) [clone .part.56]
+      2    0.4%    0.4%  v8::internal::Scope::LookupRecursive(v8::internal::ParseInfo*, v8::internal::VariableProxy*, v8::internal::Scope*)
+      2    0.4%    0.4%  v8::internal::Scanner::ScanIdentifierOrKeywordInner(v8::internal::Scanner::LiteralScope*)
+      2    0.4%    0.4%  v8::internal::Scanner::Next()
+      2    0.4%    0.4%  v8::internal::ParserBase<v8::internal::Parser>::ParseExpressionOrLabelledStatement(v8::internal::ZoneList<v8::internal::AstRawString const*>*, v8::internal::AllowLabelledFunctionStatement, bool*)
+      2    0.4%    0.4%  v8::internal::LookupIterator::State v8::internal::LookupIterator::LookupInRegularHolder<false>(v8::internal::Map*, v8::internal::JSReceiver*)
+      2    0.4%    0.4%  v8::internal::Log::MessageBuilder& v8::internal::Log::MessageBuilder::operator<< <char const*>(char const*)
+      2    0.4%    0.4%  v8::internal::Heap::AllocateRaw(int, v8::internal::AllocationSpace, v8::internal::AllocationAlignment)
+      2    0.4%    0.4%  v8::internal::ExpressionClassifier<v8::internal::ParserTypes<v8::internal::Parser> >::Accumulate(v8::internal::ExpressionClassifier<v8::internal::ParserTypes<v8::internal::Parser> >*, unsigned int)
+      2    0.4%    0.4%  std::ostream::sentry::~sentry()
+      2    0.4%    0.4%  operator new(unsigned long)
+      2    0.4%    0.4%  node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+      2    0.4%    0.4%  node::fs::Open(v8::FunctionCallbackInfo<v8::Value> const&)
+      2    0.4%    0.4%  node::EnvGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+      2    0.4%    0.4%  _int_malloc
+      2    0.4%    0.4%  _int_free
+      2    0.4%    0.4%  __GI___pthread_mutex_lock
+      2    0.4%    0.4%  __GI__IO_file_xsputn
+      1    0.2%    0.2%  void v8::internal::StringHasher::AddCharacters<unsigned char>(unsigned char const*, int)
+      1    0.2%    0.2%  void v8::internal::Scanner::Advance<false, true>()
+      1    0.2%    0.2%  v8::internal::parsing::ParseFunction(v8::internal::ParseInfo*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::interpreter::RegisterTransferWriter::EmitLdar(v8::internal::interpreter::Register)
+      1    0.2%    0.2%  v8::internal::interpreter::InterpreterCompilationJob::FinalizeJobImpl(v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::interpreter::ConstantArrayBuilder::Insert(v8::internal::AstRawString const*)
+      1    0.2%    0.2%  v8::internal::interpreter::ConditionalControlFlowBuilder::Then()
+      1    0.2%    0.2%  v8::internal::interpreter::Bytecodes::ToString(v8::internal::interpreter::Bytecode, v8::internal::interpreter::OperandScale)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterTransfer(v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*, v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterListFreeEvent(v8::internal::interpreter::RegisterList)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeGenerator::VisitNoStackOverflowCheck(v8::internal::AstNode*)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeGenerator::VisitForTest(v8::internal::Expression*, v8::internal::interpreter::BytecodeLabels*, v8::internal::interpreter::BytecodeLabels*, v8::internal::interpreter::BytecodeGenerator::TestFallthrough)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeGenerator::Visit(v8::internal::AstNode*)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeGenerator::BytecodeGenerator(v8::internal::UnoptimizedCompilationInfo*, v8::internal::AstStringConstants const*, v8::internal::ZoneVector<v8::internal::FunctionLiteral*>*)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeGenerator::BuildVariableLoad(v8::internal::Variable*, v8::internal::HoleCheckMode, v8::internal::TypeofMode)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeArrayWriter::WriteJump(v8::internal::interpreter::BytecodeNode*, v8::internal::interpreter::BytecodeLabel*)
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeArrayBuilder::Receiver() const
+      1    0.2%    0.2%  v8::internal::interpreter::BytecodeArrayBuilder::LoadLiteral(v8::internal::Smi*)
+      1    0.2%    0.2%  v8::internal::compiler::LoopVariableOptimizer::Run()
+      1    0.2%    0.2%  v8::internal::compiler::GraphReducer::ReduceTop()
+      1    0.2%    0.2%  v8::internal::compiler::FrameElider::MarkDeConstruction()
+      1    0.2%    0.2%  v8::internal::TransitionsAccessor::SearchTransition(v8::internal::Name*, v8::internal::PropertyKind, v8::internal::PropertyAttributes)
+      1    0.2%    0.2%  v8::internal::ThinString::ThinStringGet(int)
+      1    0.2%    0.2%  v8::internal::StringTable::LookupStringIfExists_NoAllocate(v8::internal::String*)
+      1    0.2%    0.2%  v8::internal::String::CalculateLineEnds(v8::internal::Handle<v8::internal::String>, bool)
+      1    0.2%    0.2%  v8::internal::StoreBuffer::InsertDuringRuntime(v8::internal::StoreBuffer*, unsigned long)
+      1    0.2%    0.2%  v8::internal::StackFrameIterator::StackFrameIterator(v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::SpaceWithLinearArea::StartNextInlineAllocationStep()
+      1    0.2%    0.2%  v8::internal::SourcePositionTableBuilder::ToSourcePositionTable(v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::SourcePositionTableBuilder::AddEntry(v8::internal::PositionTableEntry const&)
+      1    0.2%    0.2%  v8::internal::Script::GetPositionInfo(int, v8::internal::Script::PositionInfo*, v8::internal::Script::OffsetFlag) const
+      1    0.2%    0.2%  v8::internal::ScopeInfo::function_kind() const
+      1    0.2%    0.2%  v8::internal::Scope::ResolveVariablesRecursively(v8::internal::ParseInfo*)
+      1    0.2%    0.2%  v8::internal::Scope::AllocateScopeInfosRecursively(v8::internal::Isolate*, v8::internal::MaybeHandle<v8::internal::ScopeInfo>)
+      1    0.2%    0.2%  v8::internal::Scavenger::Process(v8::internal::OneshotBarrier*)
+      1    0.2%    0.2%  v8::internal::Scanner::Scanner(v8::internal::UnicodeCache*)
+      1    0.2%    0.2%  v8::internal::Scanner::PeekAhead()
+      1    0.2%    0.2%  v8::internal::RegExpParser::Advance()
+      1    0.2%    0.2%  v8::internal::PrototypeIterator::Advance()
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ParseUnaryExpression(bool*)
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ParseFormalParameterList(v8::internal::ParserFormalParameters*, bool*)
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ParseFormalParameter(v8::internal::ParserFormalParameters*, bool*)
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ParseBlock(v8::internal::ZoneList<v8::internal::AstRawString const*>*, bool*)
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ParseBinaryExpression(int, bool, bool*)
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ParseAssignmentExpression(bool, bool*)
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ParseAndClassifyIdentifier(bool*)
+      1    0.2%    0.2%  v8::internal::ParserBase<v8::internal::Parser>::ExpectSemicolon(bool*)
+      1    0.2%    0.2%  v8::internal::Parser::DeclareAndInitializeVariables(v8::internal::Block*, v8::internal::ParserBase<v8::internal::Parser>::DeclarationDescriptor const*, v8::internal::ParserBase<v8::internal::Parser>::DeclarationParsingResult::Declaration const*, v8::internal::ZoneList<v8::internal::AstRawString const*>*, bool*)
+      1    0.2%    0.2%  v8::internal::ParseInfo::ParseInfo(v8::internal::Handle<v8::internal::SharedFunctionInfo>)
+      1    0.2%    0.2%  v8::internal::ParseInfo::GetOrCreateAstValueFactory()
+      1    0.2%    0.2%  v8::internal::PagedSpace::AllocateRaw(int, v8::internal::AllocationAlignment)
+      1    0.2%    0.2%  v8::internal::Object::ConvertToName(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>)
+      1    0.2%    0.2%  v8::internal::Map::WeakCellForMap(v8::internal::Handle<v8::internal::Map>)
+      1    0.2%    0.2%  v8::internal::Map::TransitionToDataProperty(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::Name>, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::PropertyConstness, v8::internal::Object::StoreFromKeyed)
+      1    0.2%    0.2%  v8::internal::Map::SetPrototype(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::Object>, bool)
+      1    0.2%    0.2%  v8::internal::Map::CopyWithConstant(v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::Name>, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::TransitionFlag)
+      1    0.2%    0.2%  v8::internal::LookupIterator::PrepareTransitionToDataProperty(v8::internal::Handle<v8::internal::JSReceiver>, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyAttributes, v8::internal::Object::StoreFromKeyed)
+      1    0.2%    0.2%  v8::internal::LookupIterator::FetchValue() const [clone .part.57]
+      1    0.2%    0.2%  v8::internal::LoadHandler::LoadFromPrototype(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::JSReceiver>, v8::internal::Handle<v8::internal::Smi>, v8::internal::MaybeHandle<v8::internal::Object>, v8::internal::MaybeHandle<v8::internal::Object>)
+      1    0.2%    0.2%  v8::internal::JSObject::SetNormalizedProperty(v8::internal::Handle<v8::internal::JSObject>, v8::internal::Handle<v8::internal::Name>, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyDetails)
+      1    0.2%    0.2%  v8::internal::JSObject::MakePrototypesFast(v8::internal::Handle<v8::internal::Object>, v8::internal::WhereToStart, v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::JSObject::LazyRegisterPrototypeUser(v8::internal::Handle<v8::internal::Map>, v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::JSFunction::EnsureFeedbackVector(v8::internal::Handle<v8::internal::JSFunction>)
+      1    0.2%    0.2%  v8::internal::InnerPointerToCodeCache::GetCacheEntry(unsigned long)
+      1    0.2%    0.2%  v8::internal::IC::IC(v8::internal::Isolate*, v8::internal::Handle<v8::internal::FeedbackVector>, v8::internal::FeedbackSlot)
+      1    0.2%    0.2%  v8::internal::Heap::ReserveSpace(std::vector<v8::internal::Heap::Chunk, std::allocator<v8::internal::Heap::Chunk> >*, std::vector<unsigned long, std::allocator<unsigned long> >*)
+      1    0.2%    0.2%  v8::internal::HashTable<v8::internal::StringTable, v8::internal::StringTableShape>::Rehash()
+      1    0.2%    0.2%  v8::internal::HashTable<v8::internal::StringTable, v8::internal::StringTableShape>::FindEntry(v8::internal::Isolate*, v8::internal::StringTableKey*)
+      1    0.2%    0.2%  v8::internal::HashTable<v8::internal::NameDictionary, v8::internal::NameDictionaryShape>::Rehash(v8::internal::NameDictionary*)
+      1    0.2%    0.2%  v8::internal::GCTracer::Start(v8::internal::GarbageCollector, v8::internal::GarbageCollectionReason, char const*)
+      1    0.2%    0.2%  v8::internal::FeedbackNexus::FindHandlerForMap(v8::internal::Handle<v8::internal::Map>) const
+      1    0.2%    0.2%  v8::internal::FeedbackNexus::EnsureArrayOfSize(int)
+      1    0.2%    0.2%  v8::internal::Factory::NewRawOneByteString(int, v8::internal::PretenureFlag)
+      1    0.2%    0.2%  v8::internal::Factory::NewFixedArrayWithFiller(v8::internal::Heap::RootListIndex, int, v8::internal::Object*, v8::internal::PretenureFlag)
+      1    0.2%    0.2%  v8::internal::Factory::NewCodeForDeserialization(unsigned int)
+      1    0.2%    0.2%  v8::internal::Factory::InitializeMap(v8::internal::Map*, v8::internal::InstanceType, int, v8::internal::ElementsKind, int)
+      1    0.2%    0.2%  v8::internal::Factory::AllocateRawWithImmortalMap(int, v8::internal::PretenureFlag, v8::internal::Map*, v8::internal::AllocationAlignment) [clone .constprop.141]
+      1    0.2%    0.2%  v8::internal::Factory::AllocateRawArray(int, v8::internal::PretenureFlag)
+      1    0.2%    0.2%  v8::internal::DescriptorArray::Sort()
+      1    0.2%    0.2%  v8::internal::DeclarationScope::DeclareDefaultFunctionVariables(v8::internal::AstValueFactory*)
+      1    0.2%    0.2%  v8::internal::DeclarationScope::AttachOuterScopeInfo(v8::internal::ParseInfo*, v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::ConsString::ConsStringGet(int)
+      1    0.2%    0.2%  v8::internal::CallOptimization::AnalyzePossibleApiFunction(v8::internal::Handle<v8::internal::JSFunction>)
+      1    0.2%    0.2%  v8::internal::BaseNameDictionary<v8::internal::NameDictionary, v8::internal::NameDictionaryShape>::EnsureCapacity(v8::internal::Handle<v8::internal::NameDictionary>, int)
+      1    0.2%    0.2%  v8::internal::BaseNameDictionary<v8::internal::NameDictionary, v8::internal::NameDictionaryShape>::Add(v8::internal::Handle<v8::internal::NameDictionary>, v8::internal::Handle<v8::internal::Name>, v8::internal::Handle<v8::internal::Object>, v8::internal::PropertyDetails, int*)
+      1    0.2%    0.2%  v8::internal::AstValueFactory::Internalize(v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::Assembler::load_rax(v8::internal::ExternalReference)
+      1    0.2%    0.2%  v8::internal::Assembler::emit_test(v8::internal::Register, v8::internal::Register, int)
+      1    0.2%    0.2%  v8::internal::ApiNatives::InstantiateObject(v8::internal::Handle<v8::internal::ObjectTemplateInfo>, v8::internal::Handle<v8::internal::JSReceiver>)
+      1    0.2%    0.2%  v8::internal::Accessors::StringLengthGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+      1    0.2%    0.2%  v8::internal::Accessors::FunctionPrototypeGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+      1    0.2%    0.2%  v8::internal::Accessors::FunctionLengthGetter(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Value> const&)
+      1    0.2%    0.2%  v8::internal::(anonymous namespace)::FinalizeUnoptimizedCompilationJob(v8::internal::UnoptimizedCompilationJob*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Isolate*)
+      1    0.2%    0.2%  v8::internal::(anonymous namespace)::DefineClass(v8::internal::Isolate*, v8::internal::Handle<v8::internal::ClassBoilerplate>, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::JSFunction>, v8::internal::Arguments&)
+      1    0.2%    0.2%  v8::internal::(anonymous namespace)::AppendCodeCreateHeader(v8::internal::Log::MessageBuilder&, v8::internal::CodeEventListener::LogEventsAndTags, v8::internal::AbstractCode::Kind, unsigned char*, int, v8::base::ElapsedTimer*)
+      1    0.2%    0.2%  v8::base::TemplateHashMapImpl<void*, void*, v8::base::HashEqualityThenKeyMatcher<void*, bool (*)(void*, void*)>, v8::base::DefaultAllocationPolicy>::FillEmptyEntry(v8::base::TemplateHashMapEntry<void*, void*>*, void* const&, void* const&, unsigned int, v8::base::DefaultAllocationPolicy) [clone .isra.34] [clone .part.35]
+      1    0.2%    0.2%  v8::base::CallOnceImpl(long*, std::function<void ()>)
+      1    0.2%    0.2%  std::vector<v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*, v8::internal::ZoneAllocator<v8::internal::interpreter::BytecodeRegisterOptimizer::RegisterInfo*> >::_M_default_append(unsigned long)
+      1    0.2%    0.2%  std::pair<std::_Rb_tree_iterator<std::pair<std::tuple<v8::internal::FeedbackSlotKind, int, void const*> const, v8::internal::FeedbackSlot> >, bool> std::_Rb_tree<std::tuple<v8::internal::FeedbackSlotKind, int, void const*>, std::pair<std::tuple<v8::internal::FeedbackSlotKind, int, void const*> const, v8::internal::FeedbackSlot>, std::_Select1st<std::pair<std::tuple<v8::internal::FeedbackSlotKind, int, void const*> const, v8::internal::FeedbackSlot> >, std::less<std::tuple<v8::internal::FeedbackSlotKind, int, void const*> >, v8::internal::ZoneAllocator<std::pair<std::tuple<v8::internal::FeedbackSlotKind, int, void const*> const, v8::internal::FeedbackSlot> > >::_M_insert_unique<std::pair<std::tuple<v8::internal::FeedbackSlotKind, int, void const*>, v8::internal::FeedbackSlot>&>(std::pair<std::tuple<v8::internal::FeedbackSlotKind, int, void const*>, v8::internal::FeedbackSlot>&)
+      1    0.2%    0.2%  std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+      1    0.2%    0.2%  std::__use_cache<std::__numpunct_cache<char> >::operator()(std::locale const&) const
+      1    0.2%    0.2%  pthread_sigmask
+      1    0.2%    0.2%  node::fs::LStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.2%    0.2%  node::contextify::ContextifyScript::RunInThisContext(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.2%    0.2%  node::GetInternalBinding(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.2%    0.2%  node::EnvQuery(v8::Local<v8::Name>, v8::PropertyCallbackInfo<v8::Integer> const&)
+      1    0.2%    0.2%  int v8::internal::BinarySearch<(v8::internal::SearchMode)0, v8::internal::TransitionArray>(v8::internal::TransitionArray*, v8::internal::Name*, int, int*)
+      1    0.2%    0.2%  int v8::internal::(anonymous namespace)::InitPrototypeChecksImpl<v8::internal::LoadHandler, true>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::LoadHandler>, v8::internal::Handle<v8::internal::Smi>*, v8::internal::Handle<v8::internal::Map>, v8::internal::Handle<v8::internal::JSReceiver>, v8::internal::Handle<v8::internal::Object>, v8::internal::MaybeHandle<v8::internal::Object>) [clone .isra.19]
+      1    0.2%    0.2%  cfree@GLIBC_2.2.5
+      1    0.2%    0.2%  _init
+      1    0.2%    0.2%  __pthread_mutex_unlock_usercnt
+      1    0.2%    0.2%  __new_sem_init
+      1    0.2%    0.2%  __memset_avx2_unaligned_erms
+      1    0.2%    0.2%  __memcpy_avx_unaligned_erms
+      1    0.2%    0.2%  __memcmp_avx2_movbe
+      1    0.2%    0.2%  __lll_unlock_wake
+      1    0.2%    0.2%  __GI__IO_vfprintf
+
+ [Summary]:
+   ticks  total  nonlib   name
+     90   18.8%   18.9%  JavaScript
+    385   80.5%   80.7%  C++
+     13    2.7%    2.7%  GC
+      1    0.2%          Shared libraries
+      2    0.4%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    151   46.0%   31.6%  v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     87   26.5%   18.2%  v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+     15    4.6%    3.1%  v8::internal::Runtime_InterpreterDeserializeLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+     14    4.3%    2.9%  v8::internal::Runtime_LoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+     11    3.4%    2.3%  v8::internal::Runtime_StoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      8    2.4%    1.7%  v8::internal::Runtime_DeserializeLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      5    1.5%    1.0%  v8::internal::Runtime_NewObject(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    1.2%    0.8%  v8::internal::Runtime_SetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    1.2%    0.8%  v8::internal::Runtime_RegExpExec(int, v8::internal::Object**, v8::internal::Isolate*)
+      4    1.2%    0.8%  v8::internal::Runtime_CompileOptimized_Concurrent(int, v8::internal::Object**, v8::internal::Isolate*)
+      3    0.9%    0.6%  v8::internal::Runtime_KeyedStoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.6%    0.4%  v8::internal::Runtime_LoadPropertyWithInterceptor(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.6%    0.4%  v8::internal::Runtime_DefineDataPropertyInLiteral(int, v8::internal::Object**, v8::internal::Isolate*)
+      2    0.6%    0.4%  v8::internal::Runtime_AddDictionaryProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  void v8::internal::StringHasher::AddCharacters<unsigned char>(unsigned char const*, int)
+      1    0.3%    0.2%  v8::internal::StringTable::LookupStringIfExists_NoAllocate(v8::internal::String*)
+      1    0.3%    0.2%  v8::internal::Scanner::Next()
+      1    0.3%    0.2%  v8::internal::Runtime_RegExpReplace(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Runtime_NewClosure(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Runtime_LoadFromSuper(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Runtime_KeyedLoadIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Runtime_KeyedGetProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Runtime_HasProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Runtime_DefineClass(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Runtime_CreateObjectLiteral(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Builtin_StringPrototypeLastIndexOf(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::Builtin_ObjectDefineProperty(int, v8::internal::Object**, v8::internal::Isolate*)
+      1    0.3%    0.2%  v8::internal::(anonymous namespace)::FinalizeUnoptimizedCompilationJob(v8::internal::UnoptimizedCompilationJob*, v8::internal::Handle<v8::internal::SharedFunctionInfo>, v8::internal::Isolate*)
+      1    0.3%    0.2%  node::inspector::(anonymous namespace)::InspectorConsoleCall(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.3%    0.2%  node::RunMicrotasks(v8::FunctionCallbackInfo<v8::Value> const&)
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+    118   24.7%  node::contextify::ContextifyScript::New(v8::FunctionCallbackInfo<v8::Value> const&)
+    118  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+     82   69.5%      LazyCompile: ~Script vm.js:43:14
+     82  100.0%        LazyCompile: ~createScript vm.js:250:22
+     82  100.0%          LazyCompile: ~runInThisContext vm.js:299:26
+     82  100.0%            LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+     36   30.5%      LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+     36  100.0%        LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:148:34
+      5   13.9%          Script: ~<anonymous> util.js:1:11
+      5  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      3    8.3%          Script: ~<anonymous> internal/fs/streams.js:1:11
+      3  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      3    8.3%          Script: ~<anonymous> crypto.js:1:11
+      3  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      3    8.3%          LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      3  100.0%            LazyCompile: ~Module.require internal/modules/cjs/loader.js:629:36
+      2    5.6%          Script: ~<anonymous> tty.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      2    5.6%          Script: ~<anonymous> stream.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      2    5.6%          Script: ~<anonymous> internal/async_hooks.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      2    5.6%          Script: ~<anonymous> fs.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      2    5.6%          Script: ~<anonymous> assert.js:1:11
+      2  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          Script: ~<anonymous> timers.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          Script: ~<anonymous> readline.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          Script: ~<anonymous> internal/process/main_thread_only.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          Script: ~<anonymous> internal/modules/cjs/loader.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          Script: ~<anonymous> internal/child_process.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          Script: ~<anonymous> child_process.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          Script: ~<anonymous> _http_common.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    2.8%          LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1  100.0%            Script: ~bootstrapNodeJSCore internal/bootstrap/node.js:15:30
+      1    2.8%          LazyCompile: ~setupProcessObject internal/bootstrap/node.js:331:30
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.8%          LazyCompile: ~setupProcessFatal internal/bootstrap/node.js:477:29
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.8%          LazyCompile: ~setupGlobalVariables internal/bootstrap/node.js:345:32
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1    2.8%          LazyCompile: ~setupGlobalConsole internal/bootstrap/node.js:404:30
+      1  100.0%            LazyCompile: ~startup internal/bootstrap/node.js:30:19
+
+     25    5.2%  __GI___libc_write
+     11   44.0%    v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      2   18.2%      LazyCompile: ~emit events.js:140:44
+      1   50.0%        LazyCompile: ~processEmit /home/spencer/Documents/github.com/fluffy-math/node_modules/signal-exit/index.js:144:22
+      1   50.0%        LazyCompile: ~addChunk _stream_readable.js:280:18
+      1  100.0%          LazyCompile: ~readableAddChunk _stream_readable.js:227:26
+      1  100.0%            LazyCompile: ~Readable.push _stream_readable.js:202:35
+      1    9.1%      Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/combineLatest.js:51:41
+      1  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/combineLatest.js:1:11
+      1  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:698:37
+      1    9.1%      LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1  100.0%        Script: ~bootstrapNodeJSCore internal/bootstrap/node.js:15:30
+      1    9.1%      LazyCompile: ~onStreamRead internal/stream_base_commons.js:87:22
+      1    9.1%      LazyCompile: ~_run /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/input.js:18:7
+      1  100.0%        LazyCompile: ~resolve /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/base.js:56:24
+      1  100.0%          Builtin: PromiseConstructor
+      1  100.0%            LazyCompile: ~run /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/base.js:55:6
+      1    9.1%      LazyCompile: ~__extends /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/repeatWhen.js:9:21
+      1  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/repeatWhen.js:34:38
+      1  100.0%          Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/repeatWhen.js:1:11
+      1  100.0%            LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      1    9.1%      LazyCompile: ~Subscriber.next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:65:42
+      1  100.0%        LazyCompile: ~FilterSubscriber._next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/filter.js:42:49
+      1  100.0%          LazyCompile: ~Subscriber.next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:65:42
+      1  100.0%            LazyCompile: ~FilterSubscriber._next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/filter.js:42:49
+      1    9.1%      LazyCompile: ~Interface._moveCursor readline.js:723:43
+      1  100.0%        LazyCompile: ~Interface.clearLine readline.js:626:41
+      1  100.0%          LazyCompile: ~Interface._line readline.js:635:37
+      1  100.0%            LazyCompile: ~Interface._ttyWrite readline.js:756:41
+      1    9.1%      LazyCompile: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/fromEvent.js:14:78
+      1  100.0%        LazyCompile: ~MapSubscriber._next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/map.js:46:46
+      1  100.0%          LazyCompile: ~Subscriber.next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:65:42
+      1  100.0%            LazyCompile: ~handler /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/fromEvent.js:17:25
+      1    9.1%      LazyCompile: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Observable.js:64:53
+      1  100.0%        LazyCompile: ~SafeSubscriber.__tryOrUnsub /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:207:54
+      1  100.0%          LazyCompile: ~SafeSubscriber.next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:143:46
+      1  100.0%            LazyCompile: ~Subscriber._next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:89:43
+      2    8.0%    v8::internal::Runtime_InterpreterDeserializeLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      1   50.0%      LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1  100.0%        LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/input.js:44:9
+      1  100.0%          LazyCompile: ~onKeypress /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/input.js:100:13
+      1  100.0%            LazyCompile: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Observable.js:64:53
+      1   50.0%      LazyCompile: ~alignPool buffer.js:131:19
+      1  100.0%        LazyCompile: ~allocate buffer.js:318:18
+      1  100.0%          LazyCompile: ~allocUnsafe buffer.js:290:42
+      1  100.0%            LazyCompile: ~tryCreateBuffer fs.js:314:25
+      2    8.0%    v8::internal::Runtime_DeserializeLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      1   50.0%      LazyCompile: ~module.exports /home/spencer/Documents/github.com/fluffy-math/node_modules/has-flag/index.js:2:18
+      1  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/supports-color/index.js:1:11
+      1  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:698:37
+      1   50.0%      LazyCompile: ~getOptionValue internal/options.js:6:24
+      1  100.0%        LazyCompile: ~startup internal/bootstrap/node.js:30:19
+      1  100.0%          Script: ~bootstrapNodeJSCore internal/bootstrap/node.js:15:30
+      1    4.0%    v8::internal::Runtime_NewObject(int, v8::internal::Object**, v8::internal::Isolate*)
+      1  100.0%      LazyCompile: ~__extends /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/zip.js:9:21
+      1  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/zip.js:44:31
+      1  100.0%          Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/zip.js:1:11
+      1  100.0%            LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+
+     16    3.3%  __GI___mprotect
+     12   75.0%    v8::internal::Runtime_InterpreterDeserializeLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      2   16.7%      Script: ~runInContext /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:1406:44
+      2  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:9:11
+      2  100.0%          Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:1:11
+      2  100.0%            LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      2   16.7%      LazyCompile: ~Interface._ttyWrite readline.js:756:41
+      2  100.0%        LazyCompile: ~onkeypress readline.js:167:22
+      2  100.0%          LazyCompile: ~emit events.js:140:44
+      2  100.0%            LazyCompile: ~emitKeys internal/readline.js:166:19
+      1    8.3%      Script: ~<anonymous> :5:10
+      1  100.0%        Script: ~<anonymous> :1:1
+      1    8.3%      LazyCompile: ~paginate /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/paginator.js:18:11
+      1  100.0%        LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:80:9
+      1  100.0%          LazyCompile: ~_run /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:49:7
+      1  100.0%            LazyCompile: ~resolve /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/base.js:56:24
+      1    8.3%      LazyCompile: ~normalizeString path.js:57:25
+      1  100.0%        LazyCompile: ~resolve path.js:1073:28
+      1  100.0%          LazyCompile: ~Module._initPaths internal/modules/cjs/loader.js:755:29
+      1  100.0%            Script: ~<anonymous> internal/modules/cjs/loader.js:1:11
+      1    8.3%      LazyCompile: ~isObject /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:11744:22
+      1  100.0%        LazyCompile: ~baseIsNative /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:3415:26
+      1  100.0%          LazyCompile: ~getNative /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:5978:23
+      1  100.0%            Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:1475:35
+      1    8.3%      LazyCompile: ~emitKeys internal/readline.js:166:19
+      1  100.0%        Builtin: GeneratorPrototypeNext
+      1  100.0%          LazyCompile: ~onData readline.js:1006:18
+      1  100.0%            LazyCompile: ~emit events.js:140:44
+      1    8.3%      LazyCompile: ~createUnsafeArrayBuffer buffer.js:115:33
+      1  100.0%        LazyCompile: ~createPool buffer.js:124:20
+      1  100.0%          Script: ~<anonymous> buffer.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1    8.3%      LazyCompile: ~binding internal/bootstrap/loaders.js:77:39
+      1  100.0%        Script: ~bootstrapInternalLoaders internal/bootstrap/loaders.js:42:35
+      1    8.3%      LazyCompile: ~QuickSort native array.js:530:19
+      1  100.0%        LazyCompile: ~InnerArraySort native array.js:486:24
+      1  100.0%          LazyCompile: ~sort native array.js:610:46
+      1  100.0%            Script: ~<anonymous> internal/modules/cjs/helpers.js:1:11
+      4   25.0%    v8::internal::Runtime_DeserializeLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      1   25.0%      LazyCompile: ~isFlattenable /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:6253:27
+      1  100.0%        LazyCompile: ~baseFlatten /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:2939:25
+      1  100.0%          LazyCompile: ~flatten /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:7327:21
+      1  100.0%            LazyCompile: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/lodash/lodash.js:6554:22
+      1   25.0%      LazyCompile: ~events.line.pipe.value /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:64:17
+      1  100.0%        LazyCompile: ~MergeMapSubscriber._tryNext /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/mergeMap.js:65:54
+      1  100.0%          LazyCompile: ~MergeMapSubscriber._next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/mergeMap.js:57:51
+      1  100.0%            LazyCompile: ~Subscriber.next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:65:42
+      1   25.0%      LazyCompile: ~Interface._getCursorPos readline.js:703:45
+      1  100.0%        LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1  100.0%          LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:80:9
+      1  100.0%            LazyCompile: ~_run /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:49:7
+      1   25.0%      Builtin: ArrayMap
+      1  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/iconv-lite/lib/index.js:1:11
+      1  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:698:37
+
+     10    2.1%  fwrite
+      7   70.0%    v8::internal::Runtime_CompileLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      1   14.3%      Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/tap.js:36:31
+      1  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/tap.js:1:11
+      1  100.0%          LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:698:37
+      1   14.3%      LazyCompile: ~x.eraseLines.count /home/spencer/Documents/github.com/fluffy-math/node_modules/ansi-escapes/index.js:57:16
+      1  100.0%        LazyCompile: ~exports.clearLine /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/readline.js:49:29
+      1  100.0%          LazyCompile: ~clean /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:92:8
+      1  100.0%            LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1   14.3%      LazyCompile: ~exports.right /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/readline.js:20:25
+      1  100.0%        LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1  100.0%          LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:80:9
+      1  100.0%            LazyCompile: ~_run /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:49:7
+      1   14.3%      LazyCompile: ~__extends /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/scheduler/AnimationFrameScheduler.js:9:21
+      1  100.0%        Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/scheduler/AnimationFrameScheduler.js:17:41
+      1  100.0%          Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/scheduler/AnimationFrameScheduler.js:1:11
+      1  100.0%            LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      1   14.3%      LazyCompile: ~Subscription.unsubscribe /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscription.js:19:51
+      1  100.0%        LazyCompile: ~Subscriber.unsubscribe /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:82:49
+      1  100.0%          LazyCompile: ~MergeMapSubscriber._complete /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/mergeMap.js:84:55
+      1  100.0%            LazyCompile: ~Subscriber.complete /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:76:46
+      1   14.3%      LazyCompile: ~Subscriber.complete /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:76:46
+      1  100.0%        LazyCompile: ~TakeUntilSubscriber.notifyNext /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/takeUntil.js:44:57
+      1  100.0%          LazyCompile: ~InnerSubscriber._next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/InnerSubscriber.js:27:48
+      1  100.0%            LazyCompile: ~Subscriber.next /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:65:42
+      1   14.3%      LazyCompile: ~Fractional.fractional /home/spencer/Documents/github.com/fluffy-math/tools/fractional.js:42:30
+      1  100.0%        LazyCompile: ~inquirer.prompt.then.answers /home/spencer/Documents/github.com/fluffy-math/app.js:72:47
+      1  100.0%          node::RunMicrotasks(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%            LazyCompile: ~_tickCallback internal/process/next_tick.js:41:25
+      1   10.0%    v8::internal::Runtime_RegExpExec(int, v8::internal::Object**, v8::internal::Isolate*)
+      1  100.0%      Builtin: StringPrototypeReplace
+      1  100.0%        LazyCompile: ~stripVTControlCharacters internal/readline.js:134:34
+      1  100.0%          LazyCompile: ~Interface._getCursorPos readline.js:703:45
+      1  100.0%            LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1   10.0%    v8::internal::Runtime_DeserializeLazy(int, v8::internal::Object**, v8::internal::Isolate*)
+      1  100.0%      LazyCompile: ~removeListener events.js:306:28
+      1  100.0%        LazyCompile: ~unsubscribe /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/observable/fromEvent.js:39:32
+      1  100.0%          LazyCompile: ~tryCatcher /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/util/tryCatch.js:5:20
+      1  100.0%            LazyCompile: ~Subscription.unsubscribe /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscription.js:19:51
+
+     10    2.1%  epoll_pwait
+
+      9    1.9%  Builtin: InterpreterEntryTrampoline
+      3   33.3%    LazyCompile: ~realpathSync fs.js:1376:22
+      3  100.0%      LazyCompile: ~toRealPath internal/modules/cjs/loader.js:201:20
+      3  100.0%        LazyCompile: ~tryFile internal/modules/cjs/loader.js:193:17
+      3  100.0%          LazyCompile: ~tryExtensions internal/modules/cjs/loader.js:208:23
+      3  100.0%            LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:220:28
+      1   11.1%    LazyCompile: ~resolve path.js:1073:28
+      1  100.0%      LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:220:28
+      1  100.0%        LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:547:35
+      1  100.0%          LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      1  100.0%            LazyCompile: ~Module.require internal/modules/cjs/loader.js:629:36
+      1   11.1%    LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1  100.0%      LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/input.js:44:9
+      1  100.0%        LazyCompile: ~onEnd /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/input.js:81:8
+      1  100.0%          LazyCompile: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Observable.js:64:53
+      1  100.0%            LazyCompile: ~SafeSubscriber.__tryOrUnsub /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:207:54
+      1   11.1%    LazyCompile: ~nullCheck internal/fs/utils.js:188:19
+      1  100.0%      LazyCompile: ~validatePath internal/fs/utils.js:442:22
+      1  100.0%        LazyCompile: ~openSync fs.js:429:18
+      1  100.0%          LazyCompile: ~readFileSync fs.js:341:22
+      1  100.0%            LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:698:37
+      1   11.1%    LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:547:35
+      1  100.0%      LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      1  100.0%        LazyCompile: ~Module.require internal/modules/cjs/loader.js:629:36
+      1  100.0%          LazyCompile: ~require internal/modules/cjs/helpers.js:19:19
+      1  100.0%            Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/scheduler/QueueScheduler.js:1:11
+      1   11.1%    LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      1  100.0%      LazyCompile: ~Module.require internal/modules/cjs/loader.js:629:36
+      1  100.0%        LazyCompile: ~require internal/modules/cjs/helpers.js:19:19
+      1  100.0%          Script: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/operators/windowWhen.js:1:11
+      1  100.0%            LazyCompile: ~Module._compile internal/modules/cjs/loader.js:650:37
+      1   11.1%    LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:220:28
+      1  100.0%      LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:547:35
+      1  100.0%        LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      1  100.0%          LazyCompile: ~Module.require internal/modules/cjs/loader.js:629:36
+      1  100.0%            LazyCompile: ~require internal/modules/cjs/helpers.js:19:19
+
+      8    1.7%  Builtin: CallFunction_ReceiverIsAny
+      3   37.5%    LazyCompile: ~readSync fs.js:475:18
+      3  100.0%      LazyCompile: ~tryReadSync fs.js:329:21
+      3  100.0%        LazyCompile: ~readFileSync fs.js:341:22
+      3  100.0%          LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:698:37
+      3  100.0%            LazyCompile: ~Module.load internal/modules/cjs/loader.js:590:33
+      1   12.5%    LazyCompile: ~tryExtensions internal/modules/cjs/loader.js:208:23
+      1  100.0%      LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:220:28
+      1  100.0%        LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:547:35
+      1  100.0%          LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      1  100.0%            LazyCompile: ~Module.require internal/modules/cjs/loader.js:629:36
+      1   12.5%    LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1  100.0%      LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:80:9
+      1  100.0%        LazyCompile: ~onDownKey /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/list.js:133:12
+      1  100.0%          LazyCompile: ~<anonymous> /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Observable.js:64:53
+      1  100.0%            LazyCompile: ~SafeSubscriber.__tryOrUnsub /home/spencer/Documents/github.com/fluffy-math/node_modules/rxjs/internal/Subscriber.js:207:54
+      1   12.5%    LazyCompile: ~onData readline.js:1006:18
+      1  100.0%      LazyCompile: ~emit events.js:140:44
+      1  100.0%        LazyCompile: ~addChunk _stream_readable.js:280:18
+      1  100.0%          LazyCompile: ~readableAddChunk _stream_readable.js:227:26
+      1  100.0%            LazyCompile: ~Readable.push _stream_readable.js:202:35
+      1   12.5%    LazyCompile: ~module.exports.x /home/spencer/Documents/github.com/fluffy-math/node_modules/is-fullwidth-code-point/index.js:3:18
+      1  100.0%      LazyCompile: ~module.exports.str /home/spencer/Documents/github.com/fluffy-math/node_modules/string-width/index.js:5:18
+      1  100.0%        LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/utils/screen-manager.js:25:9
+      1  100.0%          LazyCompile: ~render /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/input.js:44:9
+      1  100.0%            LazyCompile: ~onKeypress /home/spencer/Documents/github.com/fluffy-math/node_modules/inquirer/lib/prompts/input.js:100:13
+      1   12.5%    LazyCompile: ~emit events.js:140:44
+      1  100.0%      LazyCompile: ~emitKeys internal/readline.js:166:19
+      1  100.0%        Builtin: GeneratorPrototypeNext
+      1  100.0%          LazyCompile: ~onData readline.js:1006:18
+      1  100.0%            LazyCompile: ~emit events.js:140:44
+
+      7    1.5%  node::GetBinding(v8::FunctionCallbackInfo<v8::Value> const&)
+      7  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+      7  100.0%      LazyCompile: ~binding internal/bootstrap/loaders.js:77:39
+      4   57.1%        Script: ~<anonymous> crypto.js:1:11
+      4  100.0%          LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      4  100.0%            LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:148:34
+      1   14.3%        Script: ~<anonymous> internal/util.js:1:11
+      1  100.0%          LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1  100.0%            LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:148:34
+      1   14.3%        Script: ~<anonymous> internal/child_process.js:1:11
+      1  100.0%          LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+      1  100.0%            LazyCompile: ~NativeModule.require internal/bootstrap/loaders.js:148:34
+      1   14.3%        LazyCompile: ~internalBinding internal/bootstrap/loaders.js:100:47
+      1  100.0%          Script: ~<anonymous> internal/async_hooks.js:1:11
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:301:44
+
+      5    1.0%  void node::StreamBase::JSMethod<node::LibuvStreamWrap, &(int node::StreamBase::WriteString<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&))>(v8::FunctionCallbackInfo<v8::Value> const&)
+      5  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+      5  100.0%      LazyCompile: ~handleWriteReq internal/stream_base_commons.js:12:24
+      5  100.0%        LazyCompile: ~writeGeneric internal/stream_base_commons.js:70:22
+      5  100.0%          LazyCompile: ~Socket._writeGeneric net.js:691:42
+      5  100.0%            LazyCompile: ~Socket._write net.js:728:35
+
+      5    1.0%  node::fs::InternalModuleStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      5  100.0%    v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*)
+      5  100.0%      LazyCompile: ~stat internal/modules/cjs/loader.js:83:14
+      4   80.0%        LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:220:28
+      4  100.0%          LazyCompile: ~Module._resolveFilename internal/modules/cjs/loader.js:547:35
+      4  100.0%            LazyCompile: ~Module._load internal/modules/cjs/loader.js:502:24
+      1   20.0%        LazyCompile: ~tryFile internal/modules/cjs/loader.js:193:17
+      1  100.0%          LazyCompile: ~tryExtensions internal/modules/cjs/loader.js:208:23
+      1  100.0%            LazyCompile: ~Module._findPath internal/modules/cjs/loader.js:220:28
+
